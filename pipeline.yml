@@ -1,8 +1,14 @@
-
+resources:
+- name: my-github-repo
+  type: git
+  source:
+    uri: https://github.com/tamarabartlett/my-github-repo.git
+    branch: master
 
 jobs:
 - name: say-hi
   plan:
+  - get: my-github-repo
   - task: echo
     config:
       platform: linux
