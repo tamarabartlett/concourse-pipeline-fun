@@ -9,6 +9,7 @@ jobs:
 - name: say-hi
   plan:
   - get: my-github-repo
+    trigger: true
   - task: cat
     config:
       platform: linux
