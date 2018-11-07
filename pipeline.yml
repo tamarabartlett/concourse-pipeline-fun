@@ -9,14 +9,16 @@ jobs:
 - name: say-hi
   plan:
   - get: my-github-repo
-  - task: echo
+  - task: cat
     config:
       platform: linux
       image_resource:
         type: docker-image
         source:
           repository: busybox
+      inputs:
+      - name: my-github-repo
       run:
-        path: echo
+        path: cat
         args:
-          - "Booo"
+          - my-github-repo/readme.md
